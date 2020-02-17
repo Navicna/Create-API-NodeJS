@@ -1,16 +1,19 @@
 "use strict";
 
 const express = require("express");
+const bodyParser = require("body-parser");
 
 const app = express();
 const router = express.Router();
 
-var route = router.get("/", (req, res, next) => {
-    res.status(200).send({
-      title: "Primeira api Victor",
-      version: "0.0.1"
-    });
-  });
-  app.use("/", route);
+//Carregar rotas:
+const indexRoute = require('./routes/index')
+const productRoute = require('./routes/product')
 
-  module.exports = app;
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use("/", indexRoute);
+app.use("/products", productRoute);
+
+module.exports = app;
