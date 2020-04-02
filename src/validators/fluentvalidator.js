@@ -26,12 +26,12 @@ ValidationContract.prototype.isFixedLen = (value, len, message) => {
         errors.push({ message: message});
 }
 
-ValidationContract.prototype.isEmail = (value, message) => {
-    var reg = new RegExp(/^\w+([-+.']\w+)*@\w+)*\.\w+([-.]\w+)*$/);
-    if(!reg.test(value)){
-        errors.push({ messag: message })
-    }
-}
+// ValidationContract.prototype.isEmail = (value, message) => {
+//     var reg = new RegExp(/^\w+([-+.']\w+)*@\w+)*\.\w+([-.]\w+)*$/);
+//     if(!reg.test(value)){
+//         errors.push({ messag: message })
+//     }
+// }
 
 ValidationContract.prototype.errors = () => {
     return errors;
